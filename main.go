@@ -186,7 +186,7 @@ func createTable(tableName *string, columnNames *[]string, db *sql.DB, verbose *
 	for i, col := range *columnNames {
 		var col_name string
 
-		reg := regexp.MustCompile(`[^a-zA-Z0-9]`)
+		reg := regexp.MustCompile(`[!-/]`)
 
 		col_name = reg.ReplaceAllString(col, "_")
 		if *verbose && col_name != col {
